@@ -138,6 +138,7 @@ def main(name):
         population = Population(BOUNDS, POPSIZE, input=input)
         population.Evaluate()
         population.keep_the_best()
+        print('\nOperation Running.')
 
         while (generation < input['MAXGENS']):
             print("\n## Generation:", generation)
@@ -150,6 +151,8 @@ def main(name):
             population.Elitist()
         import pandas as pd
         df = pd.DataFrame(statLog)
+
+        print('\nOperation Completed.')
         print(df)
         print('The best solution is ', population.best['bestFitChromo'])
 
