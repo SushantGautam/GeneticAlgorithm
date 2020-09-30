@@ -3,44 +3,43 @@ import statistics
 from copy import deepcopy
 from random import seed, random, sample, randrange, randint
 
+import numpy as np
+import pandas as pd
+
 from input import fitness_function
+
+
+def GeneticAlgorithm(name):
+    generation = 0
+    with open('input.json') as json_file:
+        input= json.load(json_file)
+
+    population = Population(input=input)
+
+    population.Evaluate()
+    population.keep_the_best()
+    print('\nOperation Running.')
+
+    while (generation < input['MAXGENS']):
+        print("\n## Generation:", generation)
+        population.Selection()
+        population.Crossover()
+        population.Mutate()
+        population.Report()
+        population.Evaluate()
+        population.Elitist()
+        generation += 1
+
+    df = pd.DataFrame(statLog)
+
+    print('\nOperation Completed.')
+    print(df)
+    print('The best solution is ', population.best['bestFitChromo'])
+
 
 statLog = []
 seed(2)
 input = None
-
-import numpy as np
-
-
-def main(name):
-    # global input
-    generation = 0
-
-    with open('input.json') as json_file:
-        input = json.load(json_file)
-        BOUNDS = input['BOUNDS']
-        POPSIZE = input['POPSIZE']
-
-        population = Population(BOUNDS, POPSIZE, input=input)
-        population.Evaluate()
-        population.keep_the_best()
-        print('\nOperation Running.')
-
-        while (generation < input['MAXGENS']):
-            print("\n## Generation:", generation)
-            generation += 1
-            population.Selection()
-            population.Crossover()
-            population.Mutate()
-            population.Report()
-            population.Evaluate()
-            population.Elitist()
-        import pandas as pd
-        df = pd.DataFrame(statLog)
-
-        print('\nOperation Completed.')
-        print(df)
-        print('The best solution is ', population.best['bestFitChromo'])
 
 
 class Chromosome:
@@ -62,10 +61,10 @@ class Chromosome:
 
 
 class Population:
-    def __init__(self, BOUNDS, POPSIZE, fitness=0, chromosomes=None, input=None):
-        self.bounds = BOUNDS
+    def __init__(self, input=None, fitness=0, chromosomes=None, ):
+        self.bounds = input['BOUNDS']
         self.fitness = fitness
-        self.popsize = POPSIZE
+        self.popsize = input['POPSIZE']
         self.input = input.copy()
         self.best = None
 
@@ -75,7 +74,7 @@ class Population:
             self.chromosomes = []
             # no chromosome given so generate
             for i in range(self.popsize):
-                self.chromosomes.append(Chromosome(BOUNDS))
+                self.chromosomes.append(Chromosome(self.bounds))
 
     # return as array for visulization
     def __repr__(self):
@@ -158,4 +157,4 @@ class Population:
 
 
 if __name__ == '__main__':
-    main('GA')
+    GeneticAlgorithm('GA')
