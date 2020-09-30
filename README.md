@@ -19,7 +19,7 @@ You can just call the main function and it will do the rest.
 ```sh
 python main.py
 ```
-You can customize function at input.py and change the GA parameters at input.json.
+You can customize function at **input.py** and change the GA parameters at **input.json**.
 
 
 ## Release History
