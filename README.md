@@ -2,6 +2,7 @@
 > Genetic Algorithm in Python
 
 Genetic Algorithm in Python. Implemented by Sushant Gautam.
+Prints with the complete process logs so debugging/understanding will be pretty easy. Console might lag for large loops and populations. 
 
 ![](header.png)
 
