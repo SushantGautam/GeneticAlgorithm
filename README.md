@@ -2,29 +2,25 @@
 > Genetic Algorithm in Python
 
 Genetic Algorithm in Python. Implemented by Sushant Gautam.
+Prints with the complete process logs so debugging/understanding will be pretty easy. Console might lag for large loops and populations. 
 
 ![](header.png)
 
 ## Installation
-Windows:
+Install numpy and pandas with pip.
 
 ```sh
-python main.py
+pip install numpy pandas
 ```
 
 ## Usage example
 
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
-
-_For more examples and usage, please refer to the [Wiki][wiki]._
-
-## Development setup
-
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
-
+You can just call the main function and it will do the rest.
 ```sh
-. . 
+python main.py
 ```
+You can customize function at input.py and change the GA parameters at input.json.
+
 
 ## Release History
 
