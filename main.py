@@ -12,6 +12,37 @@ input = None
 import numpy as np
 
 
+def main(name):
+    # global input
+    generation = 0
+
+    with open('input.json') as json_file:
+        input = json.load(json_file)
+        BOUNDS = input['BOUNDS']
+        POPSIZE = input['POPSIZE']
+
+        population = Population(BOUNDS, POPSIZE, input=input)
+        population.Evaluate()
+        population.keep_the_best()
+        print('\nOperation Running.')
+
+        while (generation < input['MAXGENS']):
+            print("\n## Generation:", generation)
+            generation += 1
+            population.Selection()
+            population.Crossover()
+            population.Mutate()
+            population.Report()
+            population.Evaluate()
+            population.Elitist()
+        import pandas as pd
+        df = pd.DataFrame(statLog)
+
+        print('\nOperation Completed.')
+        print(df)
+        print('The best solution is ', population.best['bestFitChromo'])
+
+
 class Chromosome:
     def __init__(self, BOUNDS):
         NVAR = len(BOUNDS)
@@ -124,37 +155,6 @@ class Population:
             self.keep_the_best()
             print('Elitism Not Performed')
             pass
-
-
-def main(name):
-    # global input
-    generation = 0
-
-    with open('input.json') as json_file:
-        input = json.load(json_file)
-        BOUNDS = input['BOUNDS']
-        POPSIZE = input['POPSIZE']
-
-        population = Population(BOUNDS, POPSIZE, input=input)
-        population.Evaluate()
-        population.keep_the_best()
-        print('\nOperation Running.')
-
-        while (generation < input['MAXGENS']):
-            print("\n## Generation:", generation)
-            generation += 1
-            population.Selection()
-            population.Crossover()
-            population.Mutate()
-            population.Report()
-            population.Evaluate()
-            population.Elitist()
-        import pandas as pd
-        df = pd.DataFrame(statLog)
-
-        print('\nOperation Completed.')
-        print(df)
-        print('The best solution is ', population.best['bestFitChromo'])
 
 
 if __name__ == '__main__':
