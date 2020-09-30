@@ -6,7 +6,6 @@ Genetic Algorithm in Python. Implemented by Sushant Gautam.
 ![](header.png)
 
 ## Installation
-Windows:
 Install numpy and pandas with pip.
 
 ```sh
