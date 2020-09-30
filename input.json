@@ -14,8 +14,8 @@
       10
     ]
   ],
-  "POPSIZE": 50,
+  "POPSIZE": 100,
   "MAXGENS": 1000,
   "PXOVER": 0.8,
-  "PMUTATION": 0.15
+  "PMUTATION": 0.10
 }
