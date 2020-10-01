@@ -130,11 +130,11 @@ class Chromosome:
 
 
 if __name__ == '__main__':
-    s_time = time.time()
+    s_time = time.time()  # logging start time to calculate execution time
     input = json.load(open('input.json'))  # read input params from file
     logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))  # control what is printed on console
     logging.getLogger().setLevel(logging.getLevelName(input['LogLevel']))
     seed(2)  # random seed value
     GeneticAlgorithm(input)  # call the function with input params
-    totalTime, eachTime = time.time() - s_time, (time.time() - s_time) / input['MAXGENS']
-    logging.info("---Total time: %.5fs, For each loop: %.5fs ---" % (totalTime, eachTime))
+    totalTime, eachTime = time.time() - s_time, (time.time() - s_time) / input['MAXGENS']  # calculate execution times
+    logging.info("---Total time: %.5fs, For each loop: %.5fs ---" % (totalTime, eachTime))  # print execution times
