@@ -7,10 +7,11 @@ Prints with the complete process logs so debugging/understanding will be pretty 
 ![](header.png)
 
 ## Installation
-Install numpy and pandas with pip.
+Depends upon numpy for mathematical operations. 
+Install numpy with pip.
 
 ```sh
-pip install numpy pandas
+pip install numpy
 ```
 
 ## Usage example
