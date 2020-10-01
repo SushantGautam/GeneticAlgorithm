@@ -22,7 +22,7 @@ You can just call the main function and it will do the rest.
 ```sh
 python main.py
 ```
-![image](https://user-images.githubusercontent.com/16721983/94781949-49c7e600-03ea-11eb-9eaa-53cad3f7357a.png)
+![image](https://user-images.githubusercontent.com/16721983/94782728-60bb0800-03eb-11eb-9743-337292e9898e.png)
 
 
 You can customize function at **input.py** and change the GA parameters at **input.json**.
