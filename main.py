@@ -3,6 +3,7 @@ import json
 import logging
 import statistics
 import sys
+import time
 from copy import deepcopy
 from random import random, sample, randrange, randint, seed
 
@@ -30,7 +31,7 @@ def GeneticAlgorithm(input):
     logging.debug('\nOperation Completed.')
     logging.info(np.array(population.statLog))  # print log
     logging.info("Fitness Function: " + inspect.getsource(fitness_function).splitlines()[2])
-    print('Best solution', population.best['bestFitChromo'], " with value",  population.best['bestFitnessVal'])
+    print('Best solution', population.best['bestFitChromo'], " with value", population.best['bestFitnessVal'])
 
 
 class Population:
@@ -129,8 +130,11 @@ class Chromosome:
 
 
 if __name__ == '__main__':
+    s_time = time.time()
     input = json.load(open('input.json'))  # read input params from file
     logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))  # control what is printed on console
     logging.getLogger().setLevel(logging.getLevelName(input['LogLevel']))
     seed(2)  # random seed value
     GeneticAlgorithm(input)  # call the function with input params
+    totalTime, eachTime = time.time() - s_time, (time.time() - s_time) / input['MAXGENS']
+    logging.info("---Total time: %.5fs, For each loop: %.5fs ---" % (totalTime, eachTime))
