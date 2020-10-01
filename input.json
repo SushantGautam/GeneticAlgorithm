@@ -2,20 +2,20 @@
   "_comment1": "Enter data as [var1_lower_bound var1_upper bound], [var2_lower_bound var2_upper bound]. NVARS is auto determined.",
   "BOUNDS": [
     [
-      1,
+      0,
       10
     ],
     [
-      1,
+      0,
       10
     ],
     [
-      1,
+      -10,
       10
     ]
   ],
   "POPSIZE": 100,
-  "MAXGENS": 50,
+  "MAXGENS": 100,
   "PXOVER": 0.8,
   "PMUTATION": 0.10,
   "_comment2": "Skips Elitist if 'Elitist' is set to 0",
