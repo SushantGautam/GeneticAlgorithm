@@ -8,10 +8,7 @@ import numpy as np
 from input import fitness_function
 
 
-def GeneticAlgorithm():
-    # read input params from file
-    with open('input.json') as json_file:
-        input = json.load(json_file)
+def GeneticAlgorithm(input):
     # Initialize Population from given parameters
     population = Population(input=input)
     # Also Evaluate fitness and store the best parameter
@@ -37,24 +34,6 @@ def GeneticAlgorithm():
 
 statLog, input = [], None
 seed(2)  # random seed value
-
-
-class Chromosome:
-    def __init__(self, BOUNDS):  # constructor to init random genes
-        self.gene = []
-        NVAR = len(BOUNDS)  # find number of variables/genes
-        for i in range(NVAR):  # generate random value for all gene variables
-            lower, upper = BOUNDS[i]  # proper boundary for all variables
-            self.gene.append(lower + (upper - lower) * random())  # random gene generation within boundary
-
-    def mutate(self, BOUNDS):
-        m = randrange(0, len(BOUNDS))
-        lower, upper = BOUNDS[m]  # proper boundary for  variable
-        self.gene[m] = lower + (upper - lower) * random()  # gene mutation to random bound value
-        print("Mutate ", m, " now ", self.gene)
-
-    def __repr__(self):  # to display the object
-        return repr(self.gene)
 
 
 class Population:
@@ -133,5 +112,24 @@ class Population:
         return np.array([e for e in self.chromosomes]).reshape((self.popsize, -1))
 
 
+class Chromosome:
+    def __init__(self, BOUNDS):  # constructor to init random genes
+        self.gene = []
+        NVAR = len(BOUNDS)  # find number of variables/genes
+        for i in range(NVAR):  # generate random value for all gene variables
+            lower, upper = BOUNDS[i]  # proper boundary for all variables
+            self.gene.append(lower + (upper - lower) * random())  # random gene generation within boundary
+
+    def mutate(self, BOUNDS):
+        m = randrange(0, len(BOUNDS))
+        lower, upper = BOUNDS[m]  # proper boundary for  variable
+        self.gene[m] = lower + (upper - lower) * random()  # gene mutation to random bound value
+        print("Mutate ", m, " now ", self.gene)
+
+    def __repr__(self):  # to display the object
+        return repr(self.gene)
+
+
 if __name__ == '__main__':
-    GeneticAlgorithm()
+    input = json.load(open('input.json'))  # read input params from file
+    GeneticAlgorithm(input)  # call the function with input params
