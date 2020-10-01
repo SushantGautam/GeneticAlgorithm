@@ -24,7 +24,6 @@ def GeneticAlgorithm(input):
         population.Report(generation)
         population.Evaluate()
         population.Elitist()
-
     print('\nOperation Completed.')
     print(np.array(statLog), )  # print log
     print('The best solution is ', population.best['bestFitChromo'])
