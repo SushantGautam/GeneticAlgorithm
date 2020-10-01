@@ -122,11 +122,9 @@ class Population:
         self.keep_the_best()  # select and store the best of all
 
     def Report(self, generation):
-        stdev = statistics.stdev(self.fitness)
-        # print("BestVal", self.best['bestFitnessVal'], " stdev ", stdev, " fit ", self.best)
         statLog.append({"Generation": generation,
                         "BestFit": self.best['bestFitnessVal'],
-                        "std": stdev,
+                        "std": statistics.stdev(self.fitness),  # calculate standard deviation
                         "chromosome": self.best['bestFitChromo']
                         })
 
