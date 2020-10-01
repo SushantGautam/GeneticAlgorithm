@@ -13,10 +13,11 @@ Install numpy with pip.
 ```sh
 pip install numpy
 ```
-You can control what is printed on console with "LogLevel" value at input.json file. Accepted: 'NOTSET', 'INFO', 'DEBUG'
-'NOTSET' : Prints Output Only.
-'INFO' : Print statistics of all generations.
-'DEBUG' : Step by step solution for all generations.
+You can control what is printed on console with "LogLevel" value at input.json file.\
+ **Accepted:** 'NOTSET', 'INFO', 'DEBUG'\
+'NOTSET' : Prints Output Only. \
+'INFO' : Print statistics of all generations. \
+'DEBUG' : Step by step solution for all generations. 
 ## Usage example
 
 You can just call the main function and it will do the rest.
@@ -25,12 +26,6 @@ python main.py
 ```
 You can customize function at **input.py** and change the GA parameters at **input.json**.
 
-
-
-## Release History
-
-* 0.0.1
-    * Work in progress
 
 ## Meta
 
