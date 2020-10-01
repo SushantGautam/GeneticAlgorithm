@@ -83,6 +83,7 @@ class Population:
             self.chromosomes[x].mutate(self.bounds)  # mutate within boundary
 
     def Elitist(self):
+        if not self.input['Elitist']: return  # check if Elitist is needed
         old = deepcopy(self.best)  # save old state of population
         best = {"bestFitnessVal": max(self.fitness),
                 "bestFitChromo": self.chromosomes[self.fitness.index(max(self.fitness))]
