@@ -17,7 +17,7 @@ You can control what is printed on console with "LogLevel" value at input.json f
 'INFO' : Print statistics of all generations. \
 'DEBUG' : Step by step solution for all generations. 
 ## Usage example
-
+Navigate to the folder containing main.py.
 You can just call the main function and it will do the rest.
 ```sh
 python main.py
