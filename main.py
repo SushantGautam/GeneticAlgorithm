@@ -123,7 +123,7 @@ class Chromosome:
         self.gene[m] = lower + (upper - lower) * random()  # gene mutation to random bound value
         print("Mutate ", m, " now ", self.gene)
 
-    def __repr__(self):  # to display the object
+    def __repr__(self):  # to display the object better
         return repr(self.gene)
 
 
