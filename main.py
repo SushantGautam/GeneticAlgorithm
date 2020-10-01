@@ -30,7 +30,8 @@ def GeneticAlgorithm(input):
         population.Elitist()
     logging.debug('\nOperation Completed.')
     logging.info(np.array(population.statLog))  # print log
-    logging.info("Fitness Function: " + inspect.getsource(fitness_function).splitlines()[3])
+    logging.info(str(
+        "Func:" + inspect.getsource(fitness_function).splitlines()[4] + "\tBounds:" + str(population.input['BOUNDS'])))
     print('Best solution', population.best['bestFitChromo'], " with value", population.best['bestFitnessVal'])
 
 
