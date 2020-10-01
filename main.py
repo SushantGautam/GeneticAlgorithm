@@ -15,9 +15,8 @@ def GeneticAlgorithm(input):
     population.Evaluate()
     population.keep_the_best()
     print('\nOperation Running.')
-    # loop until MAXGENS
-    generation = 0  # counter
-    while (generation < input['MAXGENS']):
+    # loop these steps until MAXGENS
+    for generation in range(input['MAXGENS']):
         print("\n## Generation:", generation)
         population.Selection()
         population.Crossover()
@@ -25,7 +24,6 @@ def GeneticAlgorithm(input):
         population.Report(generation)
         population.Evaluate()
         population.Elitist()
-        generation += 1  # counter update
 
     print('\nOperation Completed.')
     print(np.array(statLog), )  # print log
