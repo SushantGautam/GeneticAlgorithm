@@ -1,3 +1,4 @@
+import inspect
 import json
 import logging
 import statistics
@@ -28,7 +29,8 @@ def GeneticAlgorithm(input):
         population.Elitist()
     logging.debug('\nOperation Completed.')
     logging.info(np.array(population.statLog))  # print log
-    print('The best solution is ', population.best['bestFitChromo'])
+    logging.info("Fitness Function: " + inspect.getsource(fitness_function).splitlines()[2])
+    print('Best solution', population.best['bestFitChromo'], " with value",  population.best['bestFitnessVal'])
 
 
 class Population:
