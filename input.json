@@ -19,5 +19,7 @@
   "PXOVER": 0.8,
   "PMUTATION": 0.10,
   "_comment2": "Skips Elitist if 'Elitist' is set to 0",
-  "Elitist": 1
+  "Elitist": 1,
+  "_comment3": "You can control what is printed on console. Accepted: 'INFO', 'DEBUG', 'NOTSET'",
+  "LogLevel": "INFO"
 }
