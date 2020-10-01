@@ -1,10 +1,8 @@
 # Genetic Algorithm
-> Genetic Algorithm in Python
+> Genetic Algorithm with floating point gene type in Python.
 
-Genetic Algorithm in Python. Implemented by Sushant Gautam.
-Prints with the complete process logs so debugging/understanding will be pretty easy. Console might lag for large loops and populations. 
-
-![](header.png)
+With options to control console print level. \
+**Contributions/ modifications are highly welcomed.**
 
 ## Installation
 Depends upon numpy for mathematical operations. 
@@ -37,7 +35,7 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 
 ## Contributing
 
-1. Fork it (<https://github.com/yourname/GeneticAlgorithm/fork>)
+1. Fork it (<https://github.com/SushantGautam/GeneticAlgorithm/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
