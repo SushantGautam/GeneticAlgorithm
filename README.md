@@ -16,6 +16,7 @@ You can control what is printed on console with "LogLevel" value at input.json f
 'ERROR' : Prints Output Only. \
 'INFO' : Print statistics of all generations. \
 'DEBUG' : Step by step solution for all generations. 
+
 ## Usage example
 Navigate to the folder containing main.py.
 You can just call the main function and it will do the rest.
@@ -27,6 +28,10 @@ python main.py
 
 You can customize function at **input.py** and change the GA parameters at **input.json**.
 
+You can control selection method with "SelectionType" value at input.json file.\
+ **Accepted:** 'ERROR', 'INFO', 'DEBUG'\
+'RandomSelection' : Default  \
+'TournamentSelection' : Tournament Selection with N/10 members for each group during selection. \
 
 ## Meta
 
