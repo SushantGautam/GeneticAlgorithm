@@ -29,9 +29,9 @@ python main.py
 You can customize function at **input.py** and change the GA parameters at **input.json**.
 
 You can control selection method with "SelectionType" value at input.json file.\
- **Accepted:** 'ERROR', 'INFO', 'DEBUG'\
-'RandomSelection' : Default  \
-'TournamentSelection' : Tournament Selection with N/10 members for each group during selection. \
+ **Accepted:** 'RandomSelection', 'TournamentSelection' \
+'RandomSelection' : Random Selection (Default)  \
+'TournamentSelection' : Tournament Selection with N/10 members for each group during selection. 
 
 ## Meta
 
