@@ -51,15 +51,30 @@ class Population:
         self.fitness = [fitness_function(chromosome.gene) for chromosome in self.chromosomes]
 
     def Selection(self):
-        totalFitness = sum(self.fitness)
-        rfitness = np.array(self.fitness) / totalFitness
-        cfitness = np.cumsum(rfitness)
-        oldChromosomes = deepcopy(self.chromosomes)  # save old state of population chromosomes
-        for i in range(self.popsize):
-            justGreaterThan = next(
-                i for i, v in enumerate(cfitness) if v >= random())  # just greater than a random num between 0 and 1
-            self.chromosomes[i] = deepcopy(oldChromosomes[justGreaterThan])  # selected
-            logging.debug('selected ' + str(justGreaterThan) + ' at ' + str(i))
+        def RandomSelection(self):
+            totalFitness = sum(self.fitness)
+            rfitness = np.array(self.fitness) / totalFitness
+            cfitness = np.cumsum(rfitness)
+            oldChromosomes = deepcopy(self.chromosomes)  # save old state of population chromosomes
+            for i in range(self.popsize):
+                justGreaterThan = next(
+                    i for i, v in enumerate(cfitness) if
+                    v >= random())  # just greater than a random num between 0 and 1
+                self.chromosomes[i] = deepcopy(oldChromosomes[justGreaterThan])  # selected
+                logging.debug('selected ' + str(justGreaterThan) + ' at ' + str(i))
+
+        def TournamentSelection(self):
+            tournamentGroups = [sample(range(0, self.popsize), int(self.popsize / 10)) for i in range(self.popsize)]
+            oldChromosomes = deepcopy(self.chromosomes)  # save old state of population chromosomes
+            for i in range(self.popsize):
+                self.chromosomes[i] = deepcopy(
+                    oldChromosomes[
+                        self.fitness.index(max([self.fitness[i] for i in tournamentGroups[i]]))])  # selected
+
+        if self.input['SelectionType'] == 'TournamentSelection':
+            TournamentSelection(self)
+        else:
+            RandomSelection(self)
 
     def Crossover(self):
 
