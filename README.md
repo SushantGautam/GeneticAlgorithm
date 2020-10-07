@@ -4,6 +4,8 @@
 With options to control console print level. \
 **Contributions/ modifications are highly welcomed.**
 
+[![Run on Repl.it](https://repl.it/badge/github/SushantGautam/GeneticAlgorithm)](https://repl.it/github/SushantGautam/GeneticAlgorithm) : Try Online Now Without Any Intallations.
+
 ## Installation
 Depends upon numpy for mathematical operations. 
 Install numpy with pip.
