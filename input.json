@@ -24,5 +24,6 @@
   "SelectionType": "TournamentSelection",
   "_comment4": "You can control what is printed on console. Accepted: 'ERROR', 'INFO', 'DEBUG'",
   "LogLevel": "INFO",
-  "PlotData": 1
+  "_comment5": "Set PlotData to 1 to get Generations vs Fitness plot. ",
+  "PlotData": 0
 }
