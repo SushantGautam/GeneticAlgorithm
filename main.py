@@ -65,6 +65,23 @@ class Population:
                 self.chromosomes[i] = deepcopy(oldChromosomes[justGreaterThan])  # selected
                 logging.debug('selected ' + str(justGreaterThan) + ' at ' + str(i))
 
+        def RankBasedSelection(self):
+            sortedChromosomes = deepcopy(self.chromosomes)  # initializing with same size as chromosomes
+            sortedFitness = [e for e in
+                             sorted(self.fitness, reverse=True)]  # save old fitness of population chromosomes
+            indexOfSorted = [i for i, v in sorted(enumerate(self.fitness), key=lambda x: x, reverse=True)]
+            for i, v in enumerate(indexOfSorted):
+                sortedChromosomes[i] = deepcopy(self.chromosomes[v])
+            totalFitness = sum(sortedFitness)
+            rfitness = np.array(sortedFitness) / totalFitness
+            cfitness = np.cumsum(rfitness)
+            for i in range(self.popsize):
+                justGreaterThan = next(
+                    i for i, v in enumerate(cfitness) if
+                    v >= random())  # just greater than a random num between 0 and 1
+                self.chromosomes[i] = deepcopy(sortedChromosomes[justGreaterThan])  # selected
+                logging.debug('selected ' + str(justGreaterThan) + ' at ' + str(i))
+
         def TournamentSelection(self):
             tournamentGroups = [sample(range(0, self.popsize), int(self.popsize / 10)) for i in range(self.popsize)]
             oldChromosomes = deepcopy(self.chromosomes)  # save old state of population chromosomes
@@ -75,6 +92,8 @@ class Population:
 
         if self.input['SelectionType'] == 'TournamentSelection':
             TournamentSelection(self)
+        elif self.input['SelectionType'] == 'RankBasedSelection':
+            RankBasedSelection(self)
         else:
             RandomSelection(self)
 
