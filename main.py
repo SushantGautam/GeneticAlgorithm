@@ -69,7 +69,8 @@ class Population:
             sortedChromosomes = deepcopy(self.chromosomes)  # initializing with same size as chromosomes
             sortedFitness = [e for e in
                              sorted(self.fitness, reverse=True)]  # save old fitness of population chromosomes
-            indexOfSorted = [i for i, v in sorted(enumerate(self.fitness), key=lambda x: x, reverse=True)]
+            indexOfSorted = [i[0] for i in sorted(enumerate(self.fitness), key=lambda x:x[1], reverse=True)]
+
             for i, v in enumerate(indexOfSorted):
                 sortedChromosomes[i] = deepcopy(self.chromosomes[v])
             totalFitness = sum(sortedFitness)
