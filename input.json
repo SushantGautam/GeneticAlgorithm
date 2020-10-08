@@ -15,13 +15,14 @@
     ]
   ],
   "POPSIZE": 100,
-  "MAXGENS": 100,
+  "MAXGENS": 30,
   "PXOVER": 0.8,
   "PMUTATION": 0.10,
   "_comment2": "Skips Elitist if 'Elitist' is set to 0",
   "Elitist": 1,
   "_comment3": "Default is 'RandomSelection'. Can be changed to 'TournamentSelection'",
-  "SelectionType": "RandomSelection",
+  "SelectionType": "TournamentSelection",
   "_comment4": "You can control what is printed on console. Accepted: 'ERROR', 'INFO', 'DEBUG'",
-  "LogLevel": "INFO"
+  "LogLevel": "INFO",
+  "PlotData": 1
 }

@@ -10,6 +10,7 @@ from random import random, sample, randrange, randint, seed
 import numpy as np
 
 from input import fitness_function
+from utils import plotData
 
 
 def GeneticAlgorithm(input):
@@ -33,6 +34,7 @@ def GeneticAlgorithm(input):
     logging.info(str(
         "Func:" + inspect.getsource(fitness_function).splitlines()[4] + "\tBounds:" + str(population.input['BOUNDS'])))
     print('Best solution', population.best['bestFitChromo'], " with value", population.best['bestFitnessVal'])
+    if input['PlotData']: plotData(population.statLog)
 
 
 class Population:
